@@ -100,7 +100,7 @@ def october_time():
 
 st.title("Vulnerability Lookup")
 
-st.subheader("USAGE: Enter a 1, 2, or 3 to view published NVD vulnerabilities during the selected time period.")
+st.subheader("USAGE: Enter a 1, 2, or 3 to view the first 5 published NVD vulnerabilities during the selected time period.")
 
 st.subheader("1 = Between August 1st and August 2nd 2022")
 st.subheader("2 = Between September 1st and September 2nd 2022")
