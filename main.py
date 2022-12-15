@@ -1,13 +1,20 @@
+#Michael Flavin
+#Advanced Python Programming
+#Final Project
+
+
+
 import streamlit as st
 import requests
 import json
 
 
+# API request for August time period
 def august_time():
     request = requests.get('https://services.nvd.nist.gov/rest/json/cves/2.0/?pubStartDate=2022-08-01T22:59:59.999&pubEndDate=2022-08-02T23:59:59.999')
-
+    # parse json
     x = json.loads(request.text)
-
+    # display 5 vulnerabilities, each with the details below
     for y in range(5):
         st.subheader("----------------------------------------------------------------------------------------------------")
         st.subheader("CVE ID: " + x["vulnerabilities"][0]["cve"]["id"])
@@ -30,12 +37,12 @@ def august_time():
 
         y += 1
 
-
+# API request for September time period
 def september_time():
     request = requests.get('https://services.nvd.nist.gov/rest/json/cves/2.0/?pubStartDate=2022-09-01T22:59:59.999&pubEndDate=2022-09-02T23:59:59.999')
-
+    # parse json
     x = json.loads(request.text)
-
+    # display 5 vulnerabilities, each with the details below
     for y in range(5):
         st.subheader("----------------------------------------------------------------------------------------------------")
         st.subheader("CVE ID: " + x["vulnerabilities"][0]["cve"]["id"])
@@ -58,12 +65,12 @@ def september_time():
 
         y += 1
 
-
+# API request for October time period
 def october_time():
     request = requests.get('https://services.nvd.nist.gov/rest/json/cves/2.0/?pubStartDate=2022-10-01T22:59:59.999&pubEndDate=2022-10-02T23:59:59.999')
-
+    # parse json
     x = json.loads(request.text)
-
+    # display 5 vulnerabilities, each with the details below
     for y in range(5):
         st.subheader("----------------------------------------------------------------------------------------------------")
         st.subheader("CVE ID: " + x["vulnerabilities"][0]["cve"]["id"])
@@ -102,6 +109,8 @@ st.subheader("3 = Between October 1st and October 2nd 2022")
 
 time = st.text_input("Enter a 1, 2, or 3", "")
 
+# Upon pressing the submit button, the chosen option will execute its corresponding function
+# If the option does not match 1, 2, or 3, then a final else msg will be displayed, prompting for a 1, 2, or 3
 
 if (st.button('Submit')):
     result = time.title()
